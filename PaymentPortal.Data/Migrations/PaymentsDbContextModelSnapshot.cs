@@ -33,14 +33,19 @@ namespace PaymentPortal.Data.Migrations
                     b.Property<long>("AccountNumber")
                         .HasColumnType("bigint");
 
-                    b.Property<decimal>("Balance")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("AccountType")
+                        .IsRequired()
+                        .HasMaxLength(24)
+                        .HasColumnType("nvarchar(24)");
 
                     b.Property<DateTime>("CreateDateUtc")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -120,6 +125,14 @@ namespace PaymentPortal.Data.Migrations
 
                     b.Property<DateTime>("CreateDateUtc")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("CurrencyCode")
+                        .IsRequired()
+                        .HasMaxLength(3)
+                        .HasColumnType("nvarchar(3)");
+
+                    b.Property<bool>("IsVoid")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

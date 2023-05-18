@@ -19,12 +19,6 @@ namespace PaymentPortal.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Customer>(x =>
-            {
-                x.HasKey(y => y.Id);
-                x.Property(y => y.Id).ValueGeneratedOnAdd();
-            });
-
         }
 
 

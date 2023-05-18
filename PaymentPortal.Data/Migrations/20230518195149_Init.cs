@@ -34,7 +34,8 @@ namespace PaymentPortal.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AccountNumber = table.Column<long>(type: "bigint", nullable: false),
-                    Balance = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    AccountType = table.Column<string>(type: "nvarchar(24)", maxLength: 24, nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
                     CustomerId = table.Column<int>(type: "int", nullable: false),
                     CreateDateUtc = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -76,6 +77,8 @@ namespace PaymentPortal.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    CurrencyCode = table.Column<string>(type: "nvarchar(3)", maxLength: 3, nullable: false),
+                    IsVoid = table.Column<bool>(type: "bit", nullable: false),
                     AccountId = table.Column<int>(type: "int", nullable: false),
                     CreateDateUtc = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },

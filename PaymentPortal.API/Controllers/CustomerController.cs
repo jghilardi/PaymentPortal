@@ -26,7 +26,7 @@ namespace PaymentPortal.API.Controllers
             try
             {
                 logger.LogInformation(JsonSerializer.Serialize(request));
-                var response = await customerProcessor.AddCustomerAsync(request);
+                var response = await customerProcessor.CreateCustomerAsync(request);
                 logger.LogInformation(JsonSerializer.Serialize(response));
                 return Ok(response);
             }

@@ -3,11 +3,6 @@ using PaymentPortal.Data.Interfaces;
 using PaymentPortal.Data.Models;
 using PaymentPortal.Domain.Interfaces;
 using PaymentPortal.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PaymentPortal.Domain.Processors
 {
@@ -22,13 +17,13 @@ namespace PaymentPortal.Domain.Processors
             this.logger = logger;
         }
 
-        public async Task<int> AddCustomerAsync(CreateCustomerRequest request)
+        public async Task<int> CreateCustomerAsync(CreateCustomerRequest request)
         {
             try
             {
                 var response = 0;
 
-                var customer = await customerRepository.AddAsync(new Customer 
+                var customer = await customerRepository.AddAsync(new Customer
                 {
                     FirstName = request.FirstName,
                     LastName = request.LastName,
