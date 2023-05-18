@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PaymentPortal.Domain.Interfaces
 {
-    internal interface IPaymentProcessor
+    public interface IPaymentProcessor
     {
     }
 }
