@@ -1,9 +1,13 @@
-﻿namespace PaymentPortal.Data.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace PaymentPortal.Data.Models
 {
     public class Payment : Entity
     {
         public decimal Amount { get; set; }
-        public int FkAccountId { get; set; }
+        [StringLength(3)]
+        public string CurrencyCode { get; set; }
+        public int AccountId { get; set; }
         public Account Account { get; set; }
     }
 }

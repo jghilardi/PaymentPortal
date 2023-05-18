@@ -4,19 +4,20 @@ using System.Text.Json;
 
 namespace PaymentPortal.API.Controllers
 {
-    [Route("api/controller")]
     [ApiController]
+    [Route("API/Payments")]
 
-    public class PaymentController : ControllerBase
+    public class PaymentsController : ControllerBase
     {
-        private readonly ILogger<PaymentController> logger;
+        private readonly ILogger<PaymentsController> logger;
 
-        public PaymentController(ILogger<PaymentController> logger)
+        public PaymentsController(ILogger<PaymentsController> logger)
         {
             this.logger = logger;
         }
 
-        [HttpGet]
+        [HttpPost]
+        [Route("ProcessPayment")]
         public async Task<IActionResult> ProcessPaymentAsync(ProcessPaymentRequest request)
         {
             try
