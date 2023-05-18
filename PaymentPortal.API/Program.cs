@@ -19,7 +19,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // dependency injection
-
+builder.Services.AddScoped<IAccountBalanceRepository, AccountBalanceRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IPaymentProcessor, PaymentProcessor>();

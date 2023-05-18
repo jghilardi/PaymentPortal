@@ -2,7 +2,7 @@
 
 namespace PaymentPortal.Data.Interfaces
 {
-    public interface ICustomerRepository : IBaseRepository<Customer>
+    public interface IAccountBalanceRepository : IBaseRepository<AccountBalance>    
     {
     }
 }

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PaymentPortal.Data.Models;
 
 namespace PaymentPortal.Data.Interfaces
 {
-    public interface IAccountRepository
+    public interface IAccountRepository : IBaseRepository<Account>
     {
     }
 }
