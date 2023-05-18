@@ -15,7 +15,7 @@ namespace PaymentPortal.Data.Repositories
 
         public async Task<T> AddAsync(T entity)
         {
-            await context.Set<T>().AddAsync(entity);
+            var test = await context.Set<T>().AddAsync(entity);
             return entity;
         }
 

@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PaymentPortal.Data.Models;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection.Metadata;
+using System.Xml;
 
 namespace PaymentPortal.Data
 {
@@ -16,6 +19,12 @@ namespace PaymentPortal.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Customer>(x =>
+            {
+                x.HasKey(y => y.Id);
+                x.Property(y => y.Id).ValueGeneratedOnAdd();
+            });
+
         }
 
 
