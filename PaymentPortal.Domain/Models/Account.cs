@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace PaymentPortal.Domain.Models
 {
-    public class Customer
+    public class Account
     {
-        public int Id { get; set; }
-
-        public string Name { get; set; }
-
-        public string Address { get; set; }
+        public decimal Balance { get; set; }
     }
 }

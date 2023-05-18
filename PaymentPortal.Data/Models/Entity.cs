@@ -4,14 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PaymentPortal.Domain.Models
+namespace PaymentPortal.Data.Models
 {
-    public class Customer
+    public class Entity
     {
         public int Id { get; set; }
-
-        public string Name { get; set; }
-
-        public string Address { get; set; }
+        public DateTime CreateDateUtc { get; set; }
     }
 }
