@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PaymentPortal.Data.Models
+﻿namespace PaymentPortal.Data.Models
 {
     public class Payment : Entity
     {
+        public decimal Amount { get; set; }
+        public int FkAccountId { get; set; }
+        public Account Account { get; set; }
     }
 }

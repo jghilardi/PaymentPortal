@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace PaymentPortal.API.Controllers
 {
-    [Route("[api/controller]")]
+    [Route("api/controller")]
     [ApiController]
 
     public class PaymentController : ControllerBase

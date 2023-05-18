@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PaymentPortal.Data.Models
+﻿namespace PaymentPortal.Data.Models
 {
     public class Account : Entity
     {
+        public long AccountNumber { get; set; }
+        public decimal Balance { get; set; }
+        public int FkCustomerId { get; set; }
+        public Customer Customer { get; set; }
+        public ICollection<Payment> Payments { get; set; } = new List<Payment>();
     }
 }

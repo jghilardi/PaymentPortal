@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PaymentPortal.Domain.Models
 {
-    public class Customer
+    public class CustomerDto
     {
         public int Id { get; set; }
 

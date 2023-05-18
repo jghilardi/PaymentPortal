@@ -2,7 +2,7 @@
 {
     public class ProcessPaymentRequest
     {
-        public int CustomerId { get; set; }
+        public int AccountNumber { get; set; }
         public decimal Amount { get; set; }
     }
 }
