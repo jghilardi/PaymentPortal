@@ -7,7 +7,6 @@ namespace PaymentPortal.Data.Models
         public long AccountNumber { get; set; }
         [StringLength(24)]
         public string AccountType { get; set; }
-        public decimal Balance { get; set; }
         public bool IsActive { get; set; }
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
