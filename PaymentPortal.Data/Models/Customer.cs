@@ -10,7 +10,6 @@ namespace PaymentPortal.Data.Models
         public string LastName { get; set; }
         [StringLength(250)]
         public string Address { get; set; }
-        public bool IsActive { get; set; }
 
         public ICollection<Account> Accounts { get; set; } = new List<Account>();
     }

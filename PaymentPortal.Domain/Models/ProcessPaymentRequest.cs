@@ -1,4 +1,4 @@
-﻿namespace PaymentPortal.API.Models
+﻿namespace PaymentPortal.Domain.Models
 {
     public class ProcessPaymentRequest
     {

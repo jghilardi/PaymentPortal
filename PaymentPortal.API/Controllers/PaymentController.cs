@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PaymentPortal.API.Models;
+using PaymentPortal.Domain.Models;
 using System.Text.Json;
 
 namespace PaymentPortal.API.Controllers
@@ -7,11 +7,11 @@ namespace PaymentPortal.API.Controllers
     [ApiController]
     [Route("API/Payments")]
 
-    public class PaymentsController : ControllerBase
+    public class PaymentController : ControllerBase
     {
-        private readonly ILogger<PaymentsController> logger;
+        private readonly ILogger<PaymentController> logger;
 
-        public PaymentsController(ILogger<PaymentsController> logger)
+        public PaymentController(ILogger<PaymentController> logger)
         {
             this.logger = logger;
         }
