@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PaymentPortal.Domain.Interfaces;
 using PaymentPortal.Domain.Models;
 using System.Text.Json;
 
@@ -10,6 +11,7 @@ namespace PaymentPortal.API.Controllers
     public class PaymentController : ControllerBase
     {
         private readonly ILogger<PaymentController> logger;
+        private readonly IPaymentProcessor paymentProcessor;
 
         public PaymentController(ILogger<PaymentController> logger)
         {
@@ -23,7 +25,7 @@ namespace PaymentPortal.API.Controllers
             try
             {
                 logger.LogInformation(JsonSerializer.Serialize(request));
-                var response = new ProcessPaymentResponse();
+                var response = await paymentProcessor.ProcessPaymentAsync(request);
                 logger.LogInformation(JsonSerializer.Serialize(response));
                 return Ok(response);
             }

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PaymentPortal.Domain.Models;
 
 namespace PaymentPortal.Domain.Interfaces
 {
     public interface IPaymentProcessor
     {
+        Task<ProcessPaymentResponse> ProcessPaymentAsync(ProcessPaymentRequest request);
     }
 }

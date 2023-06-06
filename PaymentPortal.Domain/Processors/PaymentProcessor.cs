@@ -22,7 +22,8 @@ namespace PaymentPortal.Domain.Processors
         public async Task<ProcessPaymentResponse> ProcessPaymentAsync(ProcessPaymentRequest request)
         {
             var response = new ProcessPaymentResponse();
-
+            // call repos
+            // business logic
             return response;
         }
     }
