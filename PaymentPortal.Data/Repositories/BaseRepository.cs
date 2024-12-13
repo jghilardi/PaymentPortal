@@ -20,11 +20,6 @@ namespace PaymentPortal.Data.Repositories
             return response.Entity;
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
-        {
-            return await context.Set<T>().ToListAsync();
-        }
-
         public async Task<T> GetByIdAsync(int id)
         {
             return await context.Set<T>().FindAsync(id);
