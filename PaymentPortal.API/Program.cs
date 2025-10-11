@@ -46,14 +46,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 builder.Services.AddScoped<ICustomerProcessor, CustomerProcessor>();
 builder.Services.AddScoped<IPaymentProcessor, PaymentProcessor>();
 
-builder.Services.AddScoped<IAccountBalanceRepository, AccountBalanceRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 
 var app = builder.Build();
-
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

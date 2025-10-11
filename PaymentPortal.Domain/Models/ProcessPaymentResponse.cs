@@ -1,8 +1,7 @@
 ﻿namespace PaymentPortal.Domain.Models
 {
-    public record ProcessPaymentResponse
+    public record ProcessPaymentResponse : BaseResponse
     {
-        public bool IsSuccessful { get; init; }
         public decimal AccountBalance { get; init; }
     }
 }

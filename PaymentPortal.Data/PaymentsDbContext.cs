@@ -18,7 +18,6 @@ namespace PaymentPortal.Data
 
 
         public DbSet<Account> Accounts { get; set; }
-        public DbSet<AccountBalance> AccountBalances { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Payment> Payments { get; set; }
     }
