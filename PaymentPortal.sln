@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentPortal.AppHost", "Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentPortal.ServiceDefaults", "PaymentPortal.ServiceDefaults\PaymentPortal.ServiceDefaults.csproj", "{5F041218-930B-EDEA-FF1A-C64A2293BFFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentPortal.Tests", "PaymentPortal.Tests\PaymentPortal.Tests.csproj", "{073084B2-6289-413B-850E-5C447D8CDA84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{5F041218-930B-EDEA-FF1A-C64A2293BFFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F041218-930B-EDEA-FF1A-C64A2293BFFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F041218-930B-EDEA-FF1A-C64A2293BFFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{073084B2-6289-413B-850E-5C447D8CDA84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{073084B2-6289-413B-850E-5C447D8CDA84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{073084B2-6289-413B-850E-5C447D8CDA84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{073084B2-6289-413B-850E-5C447D8CDA84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
