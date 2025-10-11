@@ -4,9 +4,9 @@ using PaymentPortal.Domain.Models;
 
 namespace PaymentPortal.Domain.Utilities
 {
-    public class MappingProfile : Profile
+    public class AutoMapperProfile : Profile
     {
-        public MappingProfile()
+        public AutoMapperProfile()
         {
             CreateMap<Account, AccountResponse>();
         }

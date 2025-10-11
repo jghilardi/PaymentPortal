@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using PaymentPortal.Data;
@@ -7,6 +8,7 @@ using PaymentPortal.Data.Interfaces;
 using PaymentPortal.Data.Repositories;
 using PaymentPortal.Domain.Interfaces;
 using PaymentPortal.Domain.Processors;
+using PaymentPortal.Domain.Utilities;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -42,7 +44,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 });
 
+builder.Services.AddAutoMapper(cfg => { }, typeof(AutoMapperProfile));
+
 // dependency injection
+builder.Services.AddScoped<IAccountProcessor, AccountProcessor>();
 builder.Services.AddScoped<ICustomerProcessor, CustomerProcessor>();
 builder.Services.AddScoped<IPaymentProcessor, PaymentProcessor>();
 

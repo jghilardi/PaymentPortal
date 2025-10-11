@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PaymentPortal.Data;
 
@@ -11,9 +12,11 @@ using PaymentPortal.Data;
 namespace PaymentPortal.Data.Migrations
 {
     [DbContext(typeof(PaymentsDbContext))]
-    partial class PaymentsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251011191621_UpdateAccountBalanceSchema")]
+    partial class UpdateAccountBalanceSchema
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
