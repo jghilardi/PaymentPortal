@@ -17,9 +17,7 @@ namespace PaymentPortal.API.Controllers
         {
             try
             {
-                logger.LogInformation(JsonSerializer.Serialize(request));
                 var response = new ProcessPaymentResponse();
-                logger.LogInformation(JsonSerializer.Serialize(response));
                 return Ok(response);
             }
             catch (Exception ex)
