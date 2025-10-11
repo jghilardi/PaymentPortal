@@ -1,22 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PaymentPortal.Domain.Interfaces;
 using PaymentPortal.Domain.Models;
 using System.Text.Json;
 
 namespace PaymentPortal.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("API/Payments")]
 
-    public class PaymentController : ControllerBase
+    public class PaymentController(ILogger<PaymentController> logger) : ControllerBase
     {
-        private readonly ILogger<PaymentController> logger;
         private readonly IPaymentProcessor paymentProcessor;
-
-        public PaymentController(ILogger<PaymentController> logger)
-        {
-            this.logger = logger;
-        }
 
         [HttpPost]
         [Route("ProcessPayment")]

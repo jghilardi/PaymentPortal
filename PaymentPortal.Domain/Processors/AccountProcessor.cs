@@ -4,15 +4,8 @@ using PaymentPortal.Domain.Models;
 
 namespace PaymentPortal.Domain.Processors
 {
-    public class AccountProcessor : IAccountProcessor
+    public class AccountProcessor(IAccountRepository accountRepository) : IAccountProcessor
     {
-        private readonly IAccountRepository accountRepository;
-
-        public AccountProcessor(IAccountRepository accountRepository)
-        {
-            this.accountRepository = accountRepository;
-        }
-
         public async Task<CreateAccountResponse> CreateAccountAsync(CreateAccountRequest request)
         {
             var response = new CreateAccountResponse();

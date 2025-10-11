@@ -1,24 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PaymentPortal.Domain.Interfaces;
 using PaymentPortal.Domain.Models;
 using System.Text.Json;
 
 namespace PaymentPortal.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("API/Customers")]
 
-    public class CustomerController : ControllerBase
+    public class CustomerController(ICustomerProcessor customerProcessor, ILogger<CustomerController> logger) : ControllerBase
     {
-        private readonly ICustomerProcessor customerProcessor;
-        private readonly ILogger<CustomerController> logger;
-
-        public CustomerController(ICustomerProcessor customerProcessor, ILogger<CustomerController> logger)
-        {
-            this.customerProcessor = customerProcessor;
-            this.logger = logger;
-        }
-
         [HttpPost]
         [Route("CreateCustomer")]
         public async Task<IActionResult> CreateCustomerAsync(CreateCustomerRequest request)

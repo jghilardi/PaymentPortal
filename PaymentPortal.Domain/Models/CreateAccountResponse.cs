@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PaymentPortal.Domain.Models
+﻿namespace PaymentPortal.Domain.Models
 {
-    public class CreateAccountResponse : BaseResponse
+    public record CreateAccountResponse : BaseResponse
     {
-        public string CustomerName { get; set; }
-        public long AccountNumber { get; set; }
-        public string AccountType { get; set; }
+        public string? CustomerName { get; init; }
+        public long AccountNumber { get; init; }
+        public string? AccountType { get; init; }
     }
 }

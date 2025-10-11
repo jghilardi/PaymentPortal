@@ -6,17 +6,8 @@ using PaymentPortal.Domain.Models;
 
 namespace PaymentPortal.Domain.Processors
 {
-    public class CustomerProcessor : ICustomerProcessor
+    public class CustomerProcessor(ICustomerRepository customerRepository, ILogger<CustomerProcessor> logger) : ICustomerProcessor
     {
-        private readonly ICustomerRepository customerRepository;
-        private readonly ILogger<CustomerProcessor> logger;
-
-        public CustomerProcessor(ICustomerRepository customerRepository, ILogger<CustomerProcessor> logger)
-        {
-            this.customerRepository = customerRepository;
-            this.logger = logger;
-        }
-
         public async Task<int> CreateCustomerAsync(CreateCustomerRequest request)
         {
             try

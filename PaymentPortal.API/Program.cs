@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using PaymentPortal.Data;
 using PaymentPortal.Data.Interfaces;
 using PaymentPortal.Data.Repositories;
@@ -10,13 +11,21 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-
-builder.Services.AddDbContextFactory<PaymentsDbContext>(
-        options => options.UseSqlServer("name=ConnectionStrings:PaymentsDb"));
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddDbContextFactory<PaymentsDbContext>(options => options.UseSqlServer("name=ConnectionStrings:PaymentsDb"));
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    // Define the security scheme
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+});
+
+builder.Services.AddAuthentication().AddBearerToken();
 
 // dependency injection
 builder.Services.AddScoped<ICustomerProcessor, CustomerProcessor>();
@@ -39,9 +48,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

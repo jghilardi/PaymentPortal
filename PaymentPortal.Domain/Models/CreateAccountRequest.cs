@@ -1,8 +1,8 @@
 ﻿namespace PaymentPortal.Domain.Models
 {
-    public class CreateAccountRequest
+    public record CreateAccountRequest
     {
-        public int CustomerId { get; set; }
-        public string AccountType { get; set; }
+        public int CustomerId { get; init; }
+        public required string AccountType { get; init; }
     }
 }

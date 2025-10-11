@@ -1,8 +1,8 @@
 ﻿namespace PaymentPortal.Domain.Models
 {
-    public class CreateCustomerResponse : BaseResponse
+    public record CreateCustomerResponse : BaseResponse
     {
-        public string FullName { get; set; }
-        public int CustomerId { get; set; }
+        public required string FullName { get; init; }
+        public int CustomerId { get; init; }
     }
 }

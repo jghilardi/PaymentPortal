@@ -4,14 +4,9 @@ using System.Linq.Expressions;
 
 namespace PaymentPortal.Data.Repositories
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : class
+    public class BaseRepository<T>(PaymentsDbContext context) : IBaseRepository<T> where T : class
     {
-        protected readonly PaymentsDbContext context;
-
-        public BaseRepository(PaymentsDbContext context)
-        {
-            this.context = context;
-        }
+        protected readonly PaymentsDbContext context = context;
 
         public async Task<T> AddAsync(T entity)
         {

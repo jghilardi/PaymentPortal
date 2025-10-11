@@ -1,21 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PaymentPortal.Domain.Models;
 using System.Text.Json;
 
 namespace PaymentPortal.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("API/Payments")]
 
-    public class AccountController : ControllerBase
+    public class AccountController(ILogger<AccountController> logger) : ControllerBase
     {
-        private readonly ILogger<AccountController> logger;
-
-        public AccountController(ILogger<AccountController> logger)
-        {
-            this.logger = logger;
-        }
-
         [HttpPost]
         [Route("CreateAccount")]
         public async Task<IActionResult> CreateAccountAsync(ProcessPaymentRequest request)

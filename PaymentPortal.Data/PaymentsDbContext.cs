@@ -6,13 +6,8 @@ using System.Xml;
 
 namespace PaymentPortal.Data
 {
-    public class PaymentsDbContext : DbContext
+    public class PaymentsDbContext(DbContextOptions<PaymentsDbContext> options) : DbContext(options)
     {
-        public PaymentsDbContext(DbContextOptions<PaymentsDbContext> options)
-           : base(options)
-        {
-        }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
         }

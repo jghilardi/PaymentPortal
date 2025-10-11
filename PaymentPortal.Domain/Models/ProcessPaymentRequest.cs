@@ -1,8 +1,8 @@
 ﻿namespace PaymentPortal.Domain.Models
 {
-    public class ProcessPaymentRequest
+    public record ProcessPaymentRequest
     {
-        public int AccountNumber { get; set; }
-        public decimal Amount { get; set; }
+        public int AccountNumber { get; init; }
+        public decimal Amount { get; init; }
     }
 }

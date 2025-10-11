@@ -8,10 +8,7 @@ using System.Threading.Tasks;
 
 namespace PaymentPortal.Data.Repositories
 {
-    public class PaymentRepository : BaseRepository<Payment>, IPaymentRepository
+    public class PaymentRepository(PaymentsDbContext dbContext) : BaseRepository<Payment>(dbContext), IPaymentRepository
     {
-        public PaymentRepository(PaymentsDbContext dbContext) : base(dbContext)
-        {
-        }
     }
 }

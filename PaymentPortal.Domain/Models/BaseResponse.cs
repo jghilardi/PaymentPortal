@@ -1,8 +1,8 @@
 ﻿namespace PaymentPortal.Domain.Models
 {
-    public class BaseResponse
+    public record BaseResponse
     {
-        public bool IsSuccessful { get; set; }
-        public string Message { get; set; }
+        public bool IsSuccessful { get; init; }
+        public string? Message { get; init; }
     }
 }
