@@ -45,6 +45,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 });
 
+builder.Services.AddHybridCache();
+
 builder.Services.AddAutoMapper(cfg => { }, typeof(AutoMapperProfile));
 
 // dependency injection

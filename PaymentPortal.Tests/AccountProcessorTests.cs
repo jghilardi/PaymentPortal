@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.Extensions.Caching.Hybrid;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
@@ -17,6 +18,7 @@ public class AccountProcessorTests
     private Mock<IMapper> mockMapper;
     private Mock<ILogger<AccountProcessor>> mockLogger;
     private AccountProcessor accountProcessor;
+    private Mock<HybridCache> mockCache;
 
     [SetUp]
     public void SetUp()
@@ -24,11 +26,14 @@ public class AccountProcessorTests
         mockAccountRepository = new Mock<IAccountRepository>();
         mockMapper = new Mock<IMapper>();
         mockLogger = new Mock<ILogger<AccountProcessor>>();
+        mockCache = new Mock<HybridCache>();
 
         accountProcessor = new AccountProcessor(
             mockAccountRepository.Object,
             mockMapper.Object,
-            mockLogger.Object
+            mockLogger.Object,
+            mockCache.Object
+
         );
     }
 
@@ -42,8 +47,9 @@ public class AccountProcessorTests
             Id = 1,
             AccountNumber = "1234567890123456",
             CreateDateUtc = DateTime.UtcNow.AddDays(-7),
-            Customer = new Customer(),
+            Customer = new Customer { FirstName = "Jane", LastName = "Doe", Address = "1234 Test Lane"},
             AccountType = AccountTypeConstants.Savings,
+            CurrencyCode = CurrencyCodeConstants.UnitedStatesDollar,
             AccountBalance = 100.50m
         };
         var mappedResponse = new AccountResponse { AccountNumber = testAccountNumber, AccountBalance = 500.50m };
@@ -122,12 +128,13 @@ public class AccountProcessorTests
         // Entity found but logic requires Id > 0
         var entity = new Account
         {
-            Id = 1,
+            Id = 2,
             AccountNumber = "1234567890123456",
             CreateDateUtc = DateTime.UtcNow.AddDays(-7),
-            Customer = new Customer(),
+            Customer = new Customer { FirstName = "Jane", LastName = "Doe", Address = "1234 Test Lane" },
             AccountType = AccountTypeConstants.Savings,
-            AccountBalance = 100.50m
+            CurrencyCode = CurrencyCodeConstants.UnitedStatesDollar,
+            AccountBalance = 999.50m
         };
 
         mockAccountRepository

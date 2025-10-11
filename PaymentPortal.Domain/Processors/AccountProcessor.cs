@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.Extensions.Caching.Hybrid;
 using Microsoft.Extensions.Logging;
 using PaymentPortal.Data.Interfaces;
 using PaymentPortal.Domain.Interfaces;
@@ -9,14 +10,17 @@ namespace PaymentPortal.Domain.Processors
     public class AccountProcessor(
         IAccountRepository accountRepository,
         IMapper mapper,
-        ILogger<AccountProcessor> logger) : IAccountProcessor
+        ILogger<AccountProcessor> logger,
+        HybridCache cache) : IAccountProcessor
     {
+
         public async Task<AccountResponse> GetAccountAsync(string accountNumber)
         {
             try
             {
                 var response = new AccountResponse();
-                var account = await accountRepository.GetAccountByAccountNumberAsync(accountNumber);
+                var account = await cache.GetOrCreateAsync($"{accountNumber}", // key
+                            async entry => await accountRepository.GetAccountByAccountNumberAsync(accountNumber));
 
                 if (account != null && account.Id > 0)
                 {
@@ -26,7 +30,7 @@ namespace PaymentPortal.Domain.Processors
                 return response;
             }
             catch (Exception ex)
-            {                
+            {
                 logger.LogError($"Exception on GetAccountAsync: {ex.Message}");
                 return new AccountResponse();
             }

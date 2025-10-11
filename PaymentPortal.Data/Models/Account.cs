@@ -9,6 +9,8 @@ namespace PaymentPortal.Data.Models
         [StringLength(24)]
         public required string AccountType { get; set; }
         public decimal AccountBalance { get; set; }
+        [StringLength(3)]
+        public required string CurrencyCode { get; set; }
         public bool IsActive { get; set; }
         public int CustomerId { get; set; }
         public required Customer Customer { get; set; }
