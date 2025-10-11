@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PaymentPortal.Data\PaymentPortal.Data.csproj" />
     <ProjectReference Include="..\PaymentPortal.Domain\PaymentPortal.Domain.csproj" />
+    <ProjectReference Include="..\PaymentPortal.ServiceDefaults\PaymentPortal.ServiceDefaults.csproj" />
   </ItemGroup>
 
 </Project>

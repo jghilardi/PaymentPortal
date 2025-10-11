@@ -1,13 +1,11 @@
-﻿using AutoMapper;
-using Microsoft.Extensions.Logging;
-using PaymentPortal.Data.Interfaces;
+﻿using Microsoft.Extensions.Logging;
 using PaymentPortal.Domain.Interfaces;
 using PaymentPortal.Domain.Models;
 
 namespace PaymentPortal.Domain.Processors
 {
     public class PaymentProcessor(
-        IAccountProcessor accountProcessor, 
+        IAccountProcessor accountProcessor,
         ILogger<PaymentProcessor> logger) : IPaymentProcessor
     {
         public async Task<ProcessPaymentResponse> AddPaymentAsync(ProcessPaymentRequest request)
@@ -17,7 +15,7 @@ namespace PaymentPortal.Domain.Processors
 
             if (account.IsSuccessful)
             {
-                
+
             }
 
             return response;
